@@ -1,5 +1,4 @@
--- auto-generated definition
-CREATE TABLE context_branch (
+CREATE TABLE search_main.context_branch (
     id                SERIAL                                          NOT NULL
         CONSTRAINT index_instance_branch_pkey
             PRIMARY KEY,
@@ -26,21 +25,22 @@ CREATE TABLE context_branch (
     mixed_suffix      VARCHAR(16)   DEFAULT 'prod'::CHARACTER VARYING NOT NULL,
     overlord_shortcut VARCHAR(5),
     ruleset_suffix    VARCHAR(16)   DEFAULT 'prod'::CHARACTER VARYING NOT NULL,
-    api_synonyms      VARCHAR(64)[] DEFAULT '{}'::CHARACTER VARYING[] NOT NULL
+    api_synonyms      VARCHAR(64)[] DEFAULT '{}'::CHARACTER VARYING[] NOT NULL,
+    newblabla         TEXT          DEFAULT 'GOWNO'
 );
 
-COMMENT ON COLUMN context_branch.code_name IS 'Można zawrzeć po tej nazwie w zmiennej wejściowej';
+COMMENT ON COLUMN search_main.context_branch.code_name IS 'Można zawrzeć po tej nazwie w zmiennej wejściowej';
 
-COMMENT ON COLUMN context_branch.sap_branch_id IS 'Ten branch używa sapa w wersji...';
+COMMENT ON COLUMN search_main.context_branch.sap_branch_id IS 'Ten branch używa sapa w wersji...';
 
-COMMENT ON COLUMN context_branch.traffic_branch_id IS 'Gdzie zapisywać logi, null - nie zapisuj';
+COMMENT ON COLUMN search_main.context_branch.traffic_branch_id IS 'Gdzie zapisywać logi, null - nie zapisuj';
 
-COMMENT ON COLUMN context_branch.mixed_suffix IS 'Sufix schematu computed';
+COMMENT ON COLUMN search_main.context_branch.mixed_suffix IS 'Sufix schematu computed';
 
-COMMENT ON COLUMN context_branch.ruleset_suffix IS 'Domyślny ruleset. Używany w overlord.';
+COMMENT ON COLUMN search_main.context_branch.ruleset_suffix IS 'Domyślny ruleset. Używany w overlord.';
 
-COMMENT ON COLUMN context_branch.api_synonyms IS 'Synonimy dla wartości wejściowych API';
+COMMENT ON COLUMN search_main.context_branch.api_synonyms IS 'Synonimy dla wartości wejściowych API';
 
-ALTER TABLE context_branch
+ALTER TABLE search_main.context_branch
     OWNER TO my_search_user_devel;
 
